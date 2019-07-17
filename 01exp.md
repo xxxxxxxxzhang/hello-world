@@ -30,15 +30,20 @@
 
   # 查看网卡
   ifconfig | grep "enp0s8" -A 9
-
 ```
 ```
-  # 打开配置问价增加新网卡信息（这里因为权限不足通过w !sudo tee % 修改的）
+  # 打开配置问价增加新网卡信息（这里因为权限不足通过w !sudo tee % 修改的
   sudo vi /etc/netplan/01-netcfg.yaml
   # 启用配置
   sudo netplan apply
-  
 ```
+![1](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
+![2](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
+![3](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
+![4](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
+
+
+
 # 远程连接配置
 在服务器上安装openssh-server
   *安装完成后默认启用
@@ -56,6 +61,8 @@
     *生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
     *将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
     *免密登录:ssh user@102.168.56.107
+    ![5](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/ssh-keygen.png)
+    ![6](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/ssh-copy-id.png)
 
 #定制镜像
 
@@ -112,6 +119,8 @@
   sudo vi isolinux/isolinux.cfg
 
 ```
+![7](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/scp.png)
+![8](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/mount.png)
 使用预置的文件在，配置安装时的默认选择
 
 
