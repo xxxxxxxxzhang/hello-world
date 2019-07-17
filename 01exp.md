@@ -153,13 +153,6 @@
 
 ---
 
-一个我修改定制好的[ubuntu-server-autoinstall.seed](exp/chap0x01/cd-rom/preseed/ubuntu-server-autoinstall.seed)，请自行和官方示例文件进行比对，自行思考理解和掌握：
-
-* 我做了哪些修改？
-    * 用什么「工具」能提高「差异」比对的效率？
-* 这些修改的作用是什么？
-
----
 
 
 
