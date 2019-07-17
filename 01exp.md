@@ -39,7 +39,7 @@
 ```
 ![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net1.png)
 ![2](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net2.png)
-![3](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net3.png）
+![3](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net3.png)
 ![4](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net4.png)
 
 
@@ -63,8 +63,8 @@
     *免密登录:ssh user@102.168.56.107
     ![5](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-keygen.png)
     ![6](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-copy-id.png)
-
-#定制镜像
+ 
+# 定制镜像
 
 ---
 
@@ -121,6 +121,7 @@
 ```
 ![7](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/scp.png)
 ![8](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/mount.png)
+
 使用预置的文件在，配置安装时的默认选择
 
 
@@ -165,4 +166,8 @@
 
 
 
+# 参考资料
+https://github.com/CUCCS/linux-2019-jckling/tree/master/0x01
+https://jingyan.baidu.com/article/335530daa55d7e19cb41c3c2.html
+https://www.bilibili.com/video/av23555464
 
