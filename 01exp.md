@@ -7,7 +7,8 @@
 * Virtualbox
   安装Virtualbox（window系统 不能创建64位 需要虚拟化）
 * Ubuntu 18.04 Server 64bit
-
+![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox1.png)
+![2](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox2.png)
  实验步骤
  ------
 
@@ -56,11 +57,14 @@
     ssh user@192.168.56.107
 
   ```
+  远程免密登录
+   ![6](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-login)
+  
 # ssh免密登录
   在本地windows主机上使用git bash
     *生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
     *将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
-    *免密登录:ssh user@102.168.56.107
+    *免密登录:ssh user@192.168.56.107
     ![5](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-keygen.png)
     ![6](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-copy-id.png)
  
@@ -75,10 +79,10 @@
 * 安装过程禁止自动联网更新软件包
 ```
   # 在当前用户目录下创建一个用于挂载iso镜像文件的目录
- mkdir loopdir
+   mkdir loopdir
 
   # 上传本地iso镜像文件
-  # Windows git-bash 
+  # Windows git-bash （或者cmder）
   scp ubuntu-18.04.2-server-amd64.iso user@192.168.56.107:~
   
   # 挂载iso镜像文件到该目录
@@ -125,9 +129,9 @@
 使用预置的文件在，配置安装时的默认选择
 
 
-```bash
-  # 上传 ubuntu-server-autoinstall.seed
-  # Windows git-bash
+```
+  # 上传 ubuntu-server-auto install.seed
+  # Windows git-bash （从宿主机上传到虚拟机）
   scp ubuntu-server-autoinstall.seed mosom@192.168.56.102:~
 
   # 移动到指定目录下
