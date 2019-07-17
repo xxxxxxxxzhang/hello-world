@@ -37,10 +37,10 @@
   # 启用配置
   sudo netplan apply
 ```
-![1](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
-![2](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
-![3](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
-![4](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net.png)
+![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net1.png)
+![2](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net2.png)
+![3](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net3.png)
+![4](https://github.com/xxxxxxxxzhang/hello-world/tree/master/zzx/net4.png)
 
 
 
