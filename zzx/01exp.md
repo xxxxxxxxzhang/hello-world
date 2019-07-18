@@ -8,8 +8,8 @@
   安装Virtualbox（window系统 不能创建64位 需要虚拟化）
 * Ubuntu 18.04 Server 64bit
 
-![2](zzx/VBox2.png)
-![1](zzx/VBox1.png)
+![2](VBox2.png)
+![1](VBox1.png)
 
 
 # 实验步骤
@@ -42,10 +42,10 @@
   # 启用配置
   sudo netplan apply
 ```
-![1](zzx/net1.png)
-![2](zzx/net2.png)
-![3](zzx/net3.png)
-![4](zzx/net4.png)
+![1](net1.png)
+![2](net2.png)
+![3](net3.png)
+![4](net4.png)
 
 
 
@@ -127,8 +127,8 @@
   sudo vi isolinux/isolinux.cfg
 
 ```
-![7](zzx/scp.png)
-![8](zzx/mount.png)
+![7](scp.png)
+![8](mount.png)
 
 使用预置的文件在，配置安装时的默认选择
 
@@ -167,7 +167,7 @@
   sudo bash gen_iso.sh 
 ```
 生成镜像 可以无人值守自动安装
-![8](zzx/success-iso.png)
+![8](success-iso.png)
 
 
 ---
