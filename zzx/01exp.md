@@ -1,7 +1,7 @@
 
 
 # 实现无人值守的Ubuntu安装
-============================
+
 
 # 软件环境
 * Virtualbox
@@ -46,12 +46,13 @@
 ![2](net2.png)
 ![3](net3.png)
 ![4](net4.png)
-
+ssh 远程登录需要用192.168.56.107
+![4](net5.png)
 
 
 # 远程连接配置
 在服务器上安装openssh-server
-  *安装完成后默认启用
+  * 安装完成后默认启用
   ```
     #更新源
     sudo apt update
@@ -66,9 +67,9 @@
   
 # ssh免密登录
   在本地windows主机上使用git bash
-    *生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
-    *将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
-    *免密登录:ssh user@192.168.56.107
+    * 生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
+    * 将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
+    * 免密登录:ssh user@192.168.56.107
     ![5](ssh-keygen.png)
     ![6](ssh-copy-id.png)
  
@@ -168,8 +169,8 @@
 ```
 生成镜像 可以无人值守自动安装
 ![8](success-iso.png)
-
-
+安装完成 可以用预设密码登录 
+![4](success-login.png)
 ---
 
 
