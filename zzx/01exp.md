@@ -55,6 +55,7 @@ ssh 远程登录需要用192.168.56.107
 # 远程连接配置
 在服务器上安装openssh-server
   * 安装完成后默认启用
+  
   ```
     #更新源
     sudo apt update
@@ -71,9 +72,11 @@ ssh 远程登录需要用192.168.56.107
   
 # ssh免密登录
   在本地windows主机上使用git bash
-    * 生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
+    * 生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa' 
     * 将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
     * 免密登录:ssh user@192.168.56.107
+    
+    
     ![5](ssh-keygen.png)
     ![6](ssh-copy-id.png)
  
