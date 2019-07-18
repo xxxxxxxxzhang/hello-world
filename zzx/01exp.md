@@ -62,15 +62,15 @@
 
   ```
   远程免密登录
-   ![6](zzx/ssh-login)
+   ![6](ssh-login)
   
 # ssh免密登录
   在本地windows主机上使用git bash
     *生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
     *将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
     *免密登录:ssh user@192.168.56.107
-    ![5](zzx/ssh-keygen.png)
-    ![6](zzx/ssh-copy-id.png)
+    ![5](ssh-keygen.png)
+    ![6](ssh-copy-id.png)
  
 # 定制镜像
 
