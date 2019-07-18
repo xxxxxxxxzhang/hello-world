@@ -1,17 +1,19 @@
 
 
 # 实现无人值守的Ubuntu安装
-
+========================
 
 # 软件环境
 * Virtualbox
   安装Virtualbox（window系统 不能创建64位 需要虚拟化）
 * Ubuntu 18.04 Server 64bit
 
-![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox1.png)
 ![2](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox2.png)
+![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox1.png)
 
-<h1>  实验步骤
+
+# 实验步骤
+  -------------------
 
 
 # 网络配置
