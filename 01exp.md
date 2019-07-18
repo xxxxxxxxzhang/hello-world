@@ -1,15 +1,15 @@
 
 
 # 实现无人值守的Ubuntu安装
-========================
+============================
 
 # 软件环境
 * Virtualbox
   安装Virtualbox（window系统 不能创建64位 需要虚拟化）
 * Ubuntu 18.04 Server 64bit
 
-![2](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox2.png)
-![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/VBox1.png)
+![2](zzx/VBox2.png)
+![1](zzx/VBox1.png)
 
 
 # 实验步骤
@@ -42,10 +42,10 @@
   # 启用配置
   sudo netplan apply
 ```
-![1](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net1.png)
-![2](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net2.png)
-![3](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net3.png)
-![4](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/net4.png)
+![1](zzx/net1.png)
+![2](zzx/net2.png)
+![3](zzx/net3.png)
+![4](zzx/net4.png)
 
 
 
@@ -62,15 +62,15 @@
 
   ```
   远程免密登录
-   ![6](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-login)
+   ![6](zzx/ssh-login)
   
 # ssh免密登录
   在本地windows主机上使用git bash
     *生成秘钥：'ssh-keygen -t rsa -f .ssh/id_rsa'
     *将公钥发送给服务器：'ssh-copy-id -i .ssh/id_rsa.pub user@192.168.56.107'
     *免密登录:ssh user@192.168.56.107
-    ![5](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-keygen.png)
-    ![6](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/ssh-copy-id.png)
+    ![5](zzx/ssh-keygen.png)
+    ![6](zzx/ssh-copy-id.png)
  
 # 定制镜像
 
@@ -127,8 +127,8 @@
   sudo vi isolinux/isolinux.cfg
 
 ```
-![7](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/scp.png)
-![8](https://github.com/xxxxxxxxzhang/hello-world/blob/master/zzx/mount.png)
+![7](zzx/scp.png)
+![8](zzx/mount.png)
 
 使用预置的文件在，配置安装时的默认选择
 
@@ -166,7 +166,8 @@
   # 执行脚本以生成镜像文件
   sudo bash gen_iso.sh 
 ```
-
+生成镜像 可以无人值守自动安装
+![8](zzx/success-iso.png)
 
 
 ---
