@@ -1,31 +1,41 @@
-version: "3"
+version: "3.1"
 services:
-  web:
-     build:
-       context: .
-       dockerfile: Dockerfile_web
-     container_name: web-app
-     ports:
-       - "80:80"
-     restart: always
-     stdin_open: true
-     tty: true   
-  config:
-     build:
-       context: .
-       dockerfile: Dockerfile_config
-     environment: 
-       - PYTHONIOENCODING=utf-8
-     container_name: config-app
-     depends_on:
-       - web
-       
-  poc:
+
+    db:
+        image: mysql:5.7
+        ports: 
+            - "3306:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: myDb
+            MYSQL_USER: user
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test 
+        volumes:
+            - .web/dump:/docker-entrypoint-initdb.d
+            - .web/conf:/etc/mysql/conf.d
+            - persistent:/var/lib/mysql
+        networks:
+            - default
+    web:
+        build:
+          context: .
+          dockerfile: Dockerfile_web
+        links: 
+            - db:db
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_USER: user
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test 
+    poc:
      build:
        context: .
        dockerfile: Dockerfile_poc
      container_name: poc-app
      depends_on:
-       - web
-       - config
-      
+           - web
+       
+volumes:
+    persistent:

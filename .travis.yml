@@ -1,8 +1,7 @@
-language: bash
 services:
     - docker
 env:
-    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=5 PORT=8000 DOMAIN_NAME="my.blog.666.com"
+    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=20 PORT=8000 DOMAIN_NAME="my.web.666.com"
 
 before_install:
     - sudo rm /usr/local/bin/docker-compose
@@ -14,17 +13,14 @@ before_install:
     - pip3 install requests
 addons:
     hosts:
-        - my.blog.666.com
+        - my.web.666.com
 install:
     - sed -i 's/[0-9]*[1-9][0-9]*:80/'${PORT}':80/g' docker-compose.yml
-    - docker-compose up 
-    - sleep ${SLEEP_TIME}
+    - docker-compose up -d 
+    - sleep ${SLEEP_TIME}
 
 script:
-    - sudo bash check_config.sh
     - sudo bash check_poc.sh
     - cat docker-compose.yml
     - sudo cat /etc/hosts
     - curl -vv -L http://${DOMAIN_NAME}:${PORT}
-    - sudo bash del_install_file.sh
-    - sudo bash del_shell_file.sh
