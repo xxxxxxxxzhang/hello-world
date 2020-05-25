@@ -1,15 +1,20 @@
 import sys
 from selenium import webdriver
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 
 def exp(host):
     firefox_opt = webdriver.FirefoxOptions()
     firefox_opt.add_argument("--headless")
     driver = webdriver.Firefox(firefox_options=firefox_opt)
-    #driver = webdriver.Firefox()
     url = host + '/index.php'
     driver.get(url)
     #Select(driver.find_element_by_id("sel-lang ")).select_by_value("zh_cn")
-     
+    WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, 'input_username')))
     driver.find_element_by_id("input_username").clear()
     driver.find_element_by_id("input_username").send_keys("user")
     driver.find_element_by_id("input_password").clear()
@@ -30,6 +35,5 @@ if __name__ == '__main__':
         print('Usage: exp.py host')
         exit(0)
     h = sys.argv[1]
-    #h = 'http://192.168.56.107:8000'
     print("host is ",h)
     exp(h)
