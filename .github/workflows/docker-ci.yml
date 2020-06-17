@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        image-name: [wev,config]
+        image-name: [web,config]
     steps:
       - uses: actions/checkout@v1
       - name: Components Security Scan - container scan
