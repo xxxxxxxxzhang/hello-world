@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+name: Docker Image CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        image-name: [wev,config]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Components Security Scan - container scan
+        run: docker build -t xxxxxxxxzhang/${{ matrix.image-name }}:1.0  -f ./Dockerfile_poc .
+      - uses: anchore/scan-action@master
+        with:
+          image-reference: "xxxxxxxxzhang/${{ matrix.image-name }}:1.0"
+          dockerfile-path: "./${{ matrix.image-name }}/Dockerfile"
+          include-app-packages: true
+          debug: true
+      
+      - name: Components Security Scan - anchore inline scan JSON results
+        run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
+      - name: Components Security Scan - show vulnerabilities log in human readable format
+        run: jq -r '.vulnerabilities[] | "\(.vuln)\t\(.severity)\t\(.package)\t\(.package_name)\t\(.package_version)"' ./anchore-reports/vulnerabilities.json | sort -k2 | grep -v Negligible  
