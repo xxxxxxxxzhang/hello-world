@@ -10,22 +10,20 @@ jobs:
         id: buildAndPushImage
         uses: risfeng/docker-image-build-push-action@v1.0
         with:
+          docker_file: './Dockerfile_web'
           registry_url: 'registry.cn-hangzhou.aliyuncs.com'
           namespaces: 'dve_images'
           repository_name: 'phpmyadmin_web' 
           user_name: ${{ secrets.ALIYUN_USERNAME }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           image_version: 'v1.0'
-          docker_file: '/Dockerfile_web'
+          
         
       - name: Deploy DVE
         run: docker-compose up -d
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
-        
-      - name: Check Config Result
-        run: bash check_config.sh
       
       - name: Check PoC Result
         run: bash check_poc.sh
