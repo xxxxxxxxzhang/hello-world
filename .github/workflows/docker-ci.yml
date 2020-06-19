@@ -4,9 +4,6 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        image-name: [web,poc]
     steps:
       - uses: actions/checkout@v2
       - name: Build Images And Backup
