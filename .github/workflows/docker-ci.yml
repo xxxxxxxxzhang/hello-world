@@ -10,7 +10,7 @@ jobs:
         id: buildAndPushImage
         uses: risfeng/docker-image-build-push-action@v1.0
         with:
-          docker_file: './Dockerfile_web'
+          docker_file: '.'
           registry_url: 'registry.cn-hangzhou.aliyuncs.com'
           namespaces: 'dve_images'
           repository_name: 'phpmyadmin_web' 
