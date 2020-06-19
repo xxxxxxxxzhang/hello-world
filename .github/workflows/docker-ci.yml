@@ -14,11 +14,11 @@ jobs:
         with:
           registry_url: 'registry.cn-hangzhou.aliyuncs.com'
           namespaces: 'dve_images'
-          repository_name:"phpmyadmin_${{ matrix.image-name }}"
+          repository_name: 'phpmyadmin_web' 
           user_name: ${{ secrets.ALIYUN_USERNAME }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          image_version:"v1.0"
-          docker_file: './${{ matrix.image-name }}/Dockerfile'
+          image_version: 'v1.0'
+          docker_file: './web/Dockerfile'
 
       - uses: actions/checkout@v1
       - name: Components Security Scan - container scan
