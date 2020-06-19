@@ -8,6 +8,7 @@ jobs:
       matrix:
         image-name: [web,poc]
     steps:
+      - uses: actions/checkout@v2
       - name: Build Images And Backup
         id: buildAndPushImage
         uses: risfeng/docker-image-build-push-action@v1.0
@@ -18,9 +19,20 @@ jobs:
           user_name: ${{ secrets.ALIYUN_USERNAME }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           image_version: 'v1.0'
-          docker_file: './web/Dockerfile'
-
-      - uses: actions/checkout@v1
+          docker_file: './Dockerfile_web'
+        
+      - name: Deploy DVE
+        run: docker-compose up -d
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+        
+      - name: Check Config Result
+        run: bash ./check_config.sh
+      
+      - name: Check PoC Result
+        run: bash ./check_poc.sh
+      
       - name: Components Security Scan - container scan
         run: docker build -t xxxxxxxxzhang/${{ matrix.image-name }}:1.0  -f ./${{ matrix.image-name }}/Dockerfile .
       - uses: anchore/scan-action@master
