@@ -8,9 +8,22 @@ jobs:
       matrix:
         image-name: [web,poc]
     steps:
+      - name: Build Images And Backup
+        id: buildAndPushImage
+        uses: risfeng/docker-image-build-push-action@v1.0
+        with:
+          registry_url: 'https://cr.console.aliyun.com/cn-hangzhou/instances/repositories'
+          namespaces: 'adotcode'
+          repository_name: 'adc.ms.eureka.usa'
+          user_name: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
+          repository_name:"phpmyadmin_${{ matrix.image-name }}"
+          image_version: 'v1.0'
+          docker_file: './${{ matrix.image-name }}/Dockerfile'
+
       - uses: actions/checkout@v1
       - name: Components Security Scan - container scan
-        run: docker build -t xxxxxxxxzhang/${{ matrix.image-name }}:1.0  -f ./Dockerfile_poc .
+        run: docker build -t xxxxxxxxzhang/${{ matrix.image-name }}:1.0  -f ./${{ matrix.image-name }}/Dockerfile .
       - uses: anchore/scan-action@master
         with:
           image-reference: "xxxxxxxxzhang/${{ matrix.image-name }}:1.0"
