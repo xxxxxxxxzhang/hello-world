@@ -17,7 +17,7 @@ jobs:
           repository_name:"phpmyadmin_${{ matrix.image-name }}"
           user_name: ${{ secrets.ALIYUN_USERNAME }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          image_version: 'v1.0'
+          image_version:"v1.0"
           docker_file: './${{ matrix.image-name }}/Dockerfile'
 
       - uses: actions/checkout@v1
