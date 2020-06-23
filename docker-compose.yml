@@ -1,6 +1,6 @@
 version: "3.1"
 services:
-
+    
     db:
         image: mysql:5.7
         ports: 
@@ -12,30 +12,52 @@ services:
             MYSQL_PASSWORD: 111111
             MYSQL_ROOT_PASSWORD: test 
         volumes:
-            - .web/dump:/docker-entrypoint-initdb.d
-            - .web/conf:/etc/mysql/conf.d
+            - ./web/dump:/docker-entrypoint-initdb.d
+            - ./web/conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
         networks:
             - default
+        healthcheck:
+            test: "/usr/bin/mysql --user=cuc --password=111111 --execute \"SHOW DATABASES;\""
+            #test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 20s
+            retries: 3
     web:
         build:
           context: .
           dockerfile: Dockerfile_web
+        image: 1_web:latest
+        container_name: web-app
         links: 
             - db:db
         ports:
             - 8000:80
         environment:
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
+            MYSQL_USER: cuc
+            MYSQL_PASSWORD: 111111
             MYSQL_ROOT_PASSWORD: test 
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://web"]
+            interval: 10s
+            timeout: 1m
+            retries: 3
+    zeek:
+        image: fixel/zeek:latest
+        container_name: zeek
+        network_mode: 'service:web'
+        volumes:
+          - ./ids/logs:/usr/local/zeek/logs
+          - ./ids/policy_detect:/usr/local/zeek/share/zeek/policy/policy_detect
+        command: -C -i eth0 policy/policy_detect
     poc:
-     build:
-       context: .
-       dockerfile: Dockerfile_poc
-     container_name: poc-app
-     depends_on:
-           - web
-       
+        build:
+          context: .
+          dockerfile: Dockerfile_poc
+        container_name: poc-app
+        depends_on:
+            - web
+        volumes:
+            - ./poc:/opt/poc/
+    
 volumes:
     persistent:
