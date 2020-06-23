@@ -25,7 +25,16 @@ jobs:
         with:
           node-version: '12'
       
-    
+      - name: Check Service Availability
+        run: |
+          sleep 60
+          npm i puppeteer
+          node ci/check_availability.js
+          git config --local user.email "972844082@qq.com"
+          git config --local user.name "xxxxxxxxzhang"
+          git add ci/screenshots/
+          git commit -m "CI push sreenshots back"
+          
       - name: Recognize Exploit Traffic
         run: |
          cat ids/logs/notice.log
