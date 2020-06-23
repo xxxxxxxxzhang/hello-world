@@ -25,14 +25,14 @@ jobs:
         with:
           node-version: '12'
       
-      - name: Check PoC Result
-        run: bash check_poc.sh
+    
       - name: Recognize Exploit Traffic
         run: |
          cat ids/logs/notice.log
          cp -f ids/logs/notice.log ci/traffic_backup/notice.log
          git add ci/traffic_backup/
          git commit -m "CI push traffic back"
+
       - name: Components Security Scan - container scan
         run: docker build -t xxxxxxxxzhang/${{ matrix.image-name }}:1.0  -f ./${{ matrix.image-name }}/Dockerfile .
       - uses: anchore/scan-action@master
