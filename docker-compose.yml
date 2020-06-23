@@ -56,6 +56,7 @@ services:
         container_name: poc-app
         depends_on:
             - web
+            - db
         volumes:
             - ./poc:/opt/poc/
     

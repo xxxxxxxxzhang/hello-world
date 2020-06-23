@@ -10,4 +10,5 @@ RUN apt-get update --fix-missing && apt-get install -y\
   python3-pip \
   firefox
 RUN pip3 install -r /opt/poc/requirements_poc.txt
+
 CMD bash /opt/poc/poc.sh

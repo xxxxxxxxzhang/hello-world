@@ -19,6 +19,15 @@ INSERT INTO `Person` (`id`, `name`) VALUES
 (2, 'Marc'),
 (3, 'John');
 
+CREATE TABLE `Manager` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `Manager` (`id`, `name`) VALUES
+(1, 'cuc1'),
+(2, 'cuc2'),
+(3, 'cuc3');
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
