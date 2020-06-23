@@ -8,8 +8,8 @@ services:
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: myDb
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
+            MYSQL_USER: cuc
+            MYSQL_PASSWORD: 111111
             MYSQL_ROOT_PASSWORD: test 
         volumes:
             - .web/dump:/docker-entrypoint-initdb.d
