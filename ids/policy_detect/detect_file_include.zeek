@@ -20,6 +20,7 @@ export {
 
 event file_state_remove(f: fa_file)
 	{
+   print(f$http$uri);
    if ("GET" == f$http$method && "../../../../" in f$http$uri)
           {
         
@@ -31,4 +32,4 @@ event file_state_remove(f: fa_file)
                 print(f$http$uri);
         
           }
-  }
+ 	 }
