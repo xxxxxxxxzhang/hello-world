@@ -17,7 +17,9 @@ if (!fs.existsSync(dir)) {
   try {
     await page.goto(url);
     await page.screenshot({ path: dir + "/login.png" });
+    await page.tap('#input_username')；
     await page.type("#input_username", "cuc");
+    await page.tap('#input_password')；
     await page.type("#input_password", "111111");
     await page.keyboard.press("Enter", { delay: 3000 });
     await page.screenshot({ path: dir + "/index.png" });
