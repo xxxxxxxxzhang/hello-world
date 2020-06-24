@@ -23,5 +23,5 @@ script:
     - sudo bash check_poc.sh
     - cat docker-compose.yml
     - sudo cat /etc/hosts
-    - sudo cat /logs/conn.log
+    - sudo cat /usr/local/zeek/logs/conn.log
     - curl -vv -L http://${DOMAIN_NAME}:${PORT}
