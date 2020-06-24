@@ -16,8 +16,6 @@ export {
 
 }
 
-
-
 event file_state_remove(f: fa_file)
 	{
    print(f$http$uri);
