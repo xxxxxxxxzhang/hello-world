@@ -32,6 +32,13 @@ jobs:
       - name: Check Service Availability
         run: |
           sleep 60
+          sudo apt-get upgrade
+          sudo apt-get nodejs
+          sudo apt-get npm
+          curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+          sudo bash nodesource_setup.sh
+          sudo apt install nodejs
+          sudo apt install build-essential
           npm init -f
           npm i -S puppeteer
           node ci/check_availability.js
