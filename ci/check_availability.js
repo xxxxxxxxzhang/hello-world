@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const dir = "./ci/screenshots";
-const url = "http://127.0.0.1:8000/index.php/";
+const url = "http://127.0.0.1:8000/index.php";
 
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);

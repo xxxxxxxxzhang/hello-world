@@ -27,7 +27,8 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
-
+      - name: Check PoC Result
+        run: curl http://127.0.0.1:8000/index.php
       - name: Check Service Availability
         run: |
           sleep 60
@@ -39,8 +40,7 @@ jobs:
           git add ci/screenshots/
           git commit -m "CI push sreenshots back"
 
-      - name: Check PoC Result
-        run: bash ci/check_poc.sh    
+        
       - name: Recognize Exploit Traffic
         run: |
          cat ids/logs/conn.log
