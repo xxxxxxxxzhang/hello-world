@@ -27,17 +27,20 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
+
       - name: Check Service Availability
         run: |
           sleep 60
           npm init -f
-          npm i puppeteer
+          npm i -S puppeteer
           node ci/check_availability.js
           git config --local user.email "972844082@qq.com"
           git config --local user.name "xxxxxxxxzhang"
           git add ci/screenshots/
           git commit -m "CI push sreenshots back"
-          
+
+      - name: Check PoC Result
+        run: bash ci/check_poc.sh    
       - name: Recognize Exploit Traffic
         run: |
          cat ids/logs/conn.log
