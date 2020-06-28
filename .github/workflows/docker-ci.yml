@@ -27,6 +27,9 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
+      - run ：|
+          npm install
+          npm -v
       - name: Check PoC Result
         run: curl http://127.0.0.1:8000/index.php
       - name: Check Service Availability
