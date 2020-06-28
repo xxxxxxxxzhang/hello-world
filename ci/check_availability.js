@@ -22,7 +22,7 @@ if (!fs.existsSync(dir)) {
     await page.type("#input_password", "111111");
     await page.keyboard.press("Enter", { delay: 3000 });
     await page.screenshot({ path: dir + "/index.png" });
-    await page.tap("#input_go");
+    //await page.tap("#input_go");
 
     await timeout(3000) ；
     await page.screenshot({ path: dir + "/notice.png" });
