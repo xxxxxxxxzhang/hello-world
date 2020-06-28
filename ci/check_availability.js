@@ -24,7 +24,7 @@ if (!fs.existsSync(dir)) {
     await page.screenshot({ path: dir + "/index.png" });
     //await page.tap("#input_go");
 
-    await timeout(3000) ；
+    await timeout(3000) ;
     await page.screenshot({ path: dir + "/notice.png" });
   } catch (e) {
     console.log(e.toString());
