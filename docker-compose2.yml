@@ -1,8 +1,0 @@
-  
-version: '3'
-
-services:
-  web:
-    image: vsplate/phpmyadmin-4.8.1:latest
-    ports:
-      - "8002:80"

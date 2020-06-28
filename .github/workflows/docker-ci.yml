@@ -32,7 +32,7 @@ jobs:
           sleep 60
           npm i puppeteer
           node ci/check_availability.js
-          git config --local user.email "922844082@qq.com"
+          git config --local user.email "972844082@qq.com"
           git config --local user.name "xxxxxxxxzhang"
           git add ci/screenshots/
           git commit -m "CI push sreenshots back"
