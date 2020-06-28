@@ -31,16 +31,11 @@ jobs:
         run: curl http://127.0.0.1:8000/index.php
       - name: Check Service Availability
         run: |
-          sleep 60
-          sudo apt-get upgrade -y
-          sudo apt-get nodejs -y
-          sudo apt-get npm -y
-          curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-          sudo bash nodesource_setup.sh
-          sudo apt install nodejs -y
-          sudo apt install build-essential -y
+          sleep 100
           npm init -f
-          npm i -S puppeteer
+          npm -v
+          node -v
+          npm i puppeteer
           node ci/check_availability.js
           git config --local user.email "972844082@qq.com"
           git config --local user.name "xxxxxxxxzhang"
