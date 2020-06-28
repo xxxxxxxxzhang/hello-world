@@ -15,6 +15,7 @@ if (!fs.existsSync(dir)) {
   });
   try {
     await page.goto(url);
+	await timeout(3000) ;
     await page.screenshot({ path: dir + "/login.png" });
 	await page.waitForSelector('#input_username', {timeout: 60000});
     await page.tap("#input_username");
