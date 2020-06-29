@@ -63,12 +63,12 @@ jobs:
          git add ci/traffic_backup/
          git commit -m "CI push traffic back"
 
-      - name: Components Security Scan - container scan
-        run: docker build -t xxxxxxxxzhang/${{ matrix.image-name }}:1.0  -f ./${{ matrix.image-name }}/Dockerfile .
+      - name: images Security Scan - container scan
+        run: docker build -t xxxxxxxxzhang/web:1.0  -f ./Dockerfile_web .
       - uses: anchore/scan-action@master
         with:
-          image-reference: "xxxxxxxxzhang/${{ matrix.image-name }}:1.0"
-          dockerfile-path: "./${{ matrix.image-name }}/Dockerfile"
+          image-reference: "xxxxxxxxzhang/web:1.0"
+          dockerfile-path: "./Dockerfile_web"
           include-app-packages: true
           debug: true
       
