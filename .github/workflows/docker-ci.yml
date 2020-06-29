@@ -38,16 +38,6 @@ jobs:
           npm init -f
           npm -v
           node -v
-          sudo apt-get upgrade -y
-          sudo apt-get nodejs -y
-          sudo apt-get npm -y
-          curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-          sudo bash nodesource_setup.sh
-          sudo apt install nodejs -y
-          sudo apt install build-essential -y
-          echo "nice"
-          npm -v
-          node -v
           npm i puppeteer
           node ci/check_availability.js
           git config --local user.email "972844082@qq.com"
