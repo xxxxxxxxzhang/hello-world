@@ -4,7 +4,6 @@
 @load base/protocols/http/utils.zeek
 @load base/protocols/http
 
-
 module HTTP;
 export {
     ## Describes the type of notice we will generate with the Notice framework.
@@ -15,19 +14,17 @@ export {
 	
 
 }
-
-event file_state_remove(f: fa_file)
-	{
-   print(f$http$uri);
-   if ("GET" == f$http$method && "../../../../" in f$http$uri)
-          {
-        
-                local n: Notice::Info = Notice::Info($note=File_Include_Attack, 
-                                                 $msg="file include", 
-                                                 $f=f);
-                                                     
-                NOTICE(n);
-                print(f$http$uri);
-        
-          }
- 	 }
+event http_header(c: connection, is_orig: bool, name: string, value: string)
+    {
+	 print( c$http$uri);   
+        if (  "GET" in c$http$method&&  "/tmp/sess" in c$http$uri)
+            {
+   	          
+          	   local n: Notice::Info = Notice::Info($note=File_Include_Attack, 
+                                                 $msg="include file", 
+                                                 $conn=c);
+    
+          	  print( c$http$uri);                                      
+          	  NOTICE(n);
+            }                 
+    }
