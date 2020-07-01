@@ -29,9 +29,9 @@ RUN set -ex; \
     apk del .build-deps
 
 # Copy configuration
-COPY ./etc /etc/
+COPY ./web/etc /etc/
 # Copy main script
-COPY ./run.sh /run.sh
+COPY ./web/run.sh /run.sh
 RUN chmod u+rwx /run.sh
 
 # Calculate download URL
