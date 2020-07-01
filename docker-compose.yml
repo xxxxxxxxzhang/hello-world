@@ -25,8 +25,7 @@ services:
     web:
         build:
           context: .
-          dockerfile: Dockerfile_web
-        image: 1_web:latest
+          dockerfile: ./web/Dockerfile
         container_name: web-app
         links: 
             - db:db
@@ -52,7 +51,7 @@ services:
     poc:
         build:
           context: .
-          dockerfile: Dockerfile_poc
+          dockerfile: ./web/Dockerfile
         container_name: poc-app
         depends_on:
             - web
