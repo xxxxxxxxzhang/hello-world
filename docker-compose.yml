@@ -51,7 +51,7 @@ services:
     poc:
         build:
           context: .
-          dockerfile: ./web/Dockerfile
+          dockerfile: ./poc/Dockerfile
         container_name: poc-app
         depends_on:
             - web
