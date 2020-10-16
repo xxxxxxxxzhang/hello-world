@@ -16,10 +16,6 @@ mkdir -p /var/run/php/
 chown nobody:nobody /var/run/php/
 touch /var/log/php-fpm.log
 chown nobody:nobody /var/log/php-fpm.log
-
-if [ "$1" = 'phpmyadmin' ]; then
-    exec supervisord --nodaemon --configuration="/etc/supervisord.conf" --loglevel=info
-fi
 echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories
 echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories
 # 同步时间
@@ -33,3 +29,6 @@ ssh-keygen -t ed25519 -P "" -f /etc/ssh/ssh_host_ed25519_key
 echo "root:admin" | chpasswd
 
 /usr/sbin/sshd
+if [ "$1" = 'phpmyadmin' ]; then
+    exec supervisord --nodaemon --configuration="/etc/supervisord.conf" --loglevel=info
+fi
