@@ -21,23 +21,19 @@ jobs:
         
       - name: Deploy DVE
         run: | 
-          ls
-          pwd
           docker-compose up -d
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
       - run: |
           npm install
-          npm -v
       - name: Check PoC Result
         run: curl http://127.0.0.1:8000/index.php
+
       - name: Check Service Availability
         run: |
           sleep 100
           npm init -f
-          npm -v
-          node -v
           npm i puppeteer
           node ci/check_availability.js
           git config --local user.email "972844082@qq.com"
@@ -45,10 +41,9 @@ jobs:
           git add ci/screenshots/
           git commit -m "CI push sreenshots back"
 
-        
       - name: Recognize Exploit Traffic
         run: |
-         cat ids/logs/conn.log
+         cat ids/logs/notice.log
          cp -f ids/logs/notice.log ci/traffic_backup/notice.log
          git add ci/traffic_backup/
          git commit -m "CI push traffic back"

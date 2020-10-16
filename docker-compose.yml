@@ -46,7 +46,7 @@ services:
         network_mode: 'service:web'
         volumes:
           - ./ids/logs:/usr/local/zeek/logs
-          - ./ids/policy_detect:/usr/local/zeek/share/zeek/policy/detect_file_include
+          - ./ids/detect_include_file_attack:/usr/local/zeek/share/zeek/policy/detect_file_include
         command: -C -i eth0 policy/detect_file_include
     poc:
         build:
