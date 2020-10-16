@@ -55,7 +55,7 @@ jobs:
 
       - name: images Security Scan - container scan
         run: docker build -t xxxxxxxxzhang/web:1.0  -f ./Dockerfile_web .
-      - uses: anchore/scan-action@master
+      - uses: anchore/scan-action@v2.0.0
         with:
           image-reference: "xxxxxxxxzhang/web:1.0"
           dockerfile-path: "./Dockerfile_web"
