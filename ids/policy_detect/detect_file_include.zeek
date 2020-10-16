@@ -16,7 +16,7 @@ export {
 }
 event http_header(c: connection, is_orig: bool, name: string, value: string)
     {
-	 print( c$http$uri);   
+        print( c$http$uri);   
         if (  "GET" in c$http$method&&  "/tmp/sess" in c$http$uri)
             {
    	          
