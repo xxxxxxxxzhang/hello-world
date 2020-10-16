@@ -20,3 +20,4 @@ chown nobody:nobody /var/log/php-fpm.log
 if [ "$1" = 'phpmyadmin' ]; then
     exec supervisord --nodaemon --configuration="/etc/supervisord.conf" --loglevel=info
 fi
+/usr/sbin/sshd
