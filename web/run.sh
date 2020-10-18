@@ -28,7 +28,8 @@ ssh-keygen -t ecdsa -P "" -f /etc/ssh/ssh_host_ecdsa_key
 ssh-keygen -t ed25519 -P "" -f /etc/ssh/ssh_host_ed25519_key 
 echo "root:admin" | chpasswd
 
-/usr/sbin/sshd
+/usr/sbin/sshd -D &
+
 if [ "$1" = 'phpmyadmin' ]; then
     exec supervisord --nodaemon --configuration="/etc/supervisord.conf" --loglevel=info
 fi
