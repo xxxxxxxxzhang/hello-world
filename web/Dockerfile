@@ -46,8 +46,8 @@ RUN  set -ex; \
         gnupg \
     ; \
     \
-     export GNUPGHOME="$(mktemp -d)"; \
-     export GPGKEY="3D06A59ECE730EB71B511C17CE752F178259BD92"; \
+    export GNUPGHOME="$(mktemp -d)"; \
+    export GPGKEY="3D06A59ECE730EB71B511C17CE752F178259BD92"; \
     ls;\
     tar xzf phpMyAdmin.tar.gz; \
     cd phpMyAdmin;\
