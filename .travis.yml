@@ -19,7 +19,7 @@ install:
     - docker-compose up -d 
     - sleep ${SLEEP_TIME}
 script:
-    - sudo bash check_poc.sh
+    - sudo bash ci/check_poc.sh
     - cat docker-compose.yml
     - sudo cat /etc/hosts
     - sudo cd /usr/local/zeek/logs
