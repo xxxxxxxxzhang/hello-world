@@ -28,7 +28,7 @@ jobs:
       - run: |
           npm install
       - name: Check PoC Result
-        run: curl http://127.0.0.1:8000/index.php
+        run: bash ci/check_poc.sh
 
       - name: Check Service Availability
         run: |
