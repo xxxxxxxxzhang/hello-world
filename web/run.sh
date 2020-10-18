@@ -21,6 +21,9 @@ echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/rep
 # 同步时间
  
 # 更新源、安装openssh 并修改配置文件和生成key 并且同步时间
+apk update 
+apk add --no-cache openssh-server tzdata 
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config 
 ssh-keygen -t dsa -P "" -f /etc/ssh/ssh_host_dsa_key 
 ssh-keygen -t rsa -P "" -f /etc/ssh/ssh_host_rsa_key 
