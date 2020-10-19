@@ -16,7 +16,7 @@ jobs:
           repository_name: 'phpmyadmin_web' 
           user_name: ${{ secrets.ALIYUN_USERNAME }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          image_version: 'ssh'
+          image_version: 'v1'
           
         
       - name: Deploy DVE
