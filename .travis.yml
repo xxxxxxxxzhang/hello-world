@@ -20,6 +20,7 @@ install:
     - sleep ${SLEEP_TIME}
     - docker-compose logs poc
     - docker-compose logs web
+    - docker-compose logs zeek
 script:
     - sudo bash ci/check_poc.sh
     - cat docker-compose.yml
