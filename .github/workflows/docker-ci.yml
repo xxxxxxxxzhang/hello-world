@@ -21,8 +21,9 @@ jobs:
         
       - name: Deploy DVE
         run: | 
-          docker-compose up
+          docker-compose up -d
           docker-compose logs poc
+          docker-compose logs web
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
