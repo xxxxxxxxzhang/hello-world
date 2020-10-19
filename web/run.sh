@@ -19,7 +19,7 @@ chown nobody:nobody /var/run/php/
 echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories
 echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories
 apk update 
-apk add --no-cache openssh-server tzdata -y
+apk add --no-cache openssh-server tzdata 
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config 
 ssh-keygen -t rsa -P "" -f /etc/ssh/ssh_host_rsa_key 
