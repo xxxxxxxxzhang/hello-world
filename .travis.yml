@@ -18,8 +18,8 @@ install:
     - sed -i 's/[0-9]*[1-9][0-9]*:80/'${PORT}':80/g' docker-compose.yml
     - docker-compose up -d 
     - sleep ${SLEEP_TIME}
-    - docker-compose up -d poc
-    - docker-compose up -d web
+    - docker-compose logs poc
+    - docker-compose logs web
 script:
     - sudo bash ci/check_poc.sh
     - cat docker-compose.yml
