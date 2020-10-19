@@ -67,6 +67,7 @@ RUN mkdir /sessions \
 
 # We expose phpMyAdmin on port 80
 EXPOSE 80
+EXPOSE 22
 
 ENTRYPOINT [ "/run.sh" ]
 CMD ["phpmyadmin"]
