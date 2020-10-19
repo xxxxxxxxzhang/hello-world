@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
-COPY ./poc/ /opt/poc/
-COPY ./poc/requirements_poc.txt /opt/poc/requirements_poc.txt
+#COPY ./poc/ /opt/poc/
+#COPY ./poc/requirements_poc.txt /opt/poc/requirements_poc.txt
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list
 RUN apt-get clean
 RUN apt-get update --fix-missing && apt-get install -y\
