@@ -24,8 +24,8 @@ services:
             retries: 3
     web:
         build:
-          context: .
-          dockerfile: ./Dockerfile_web
+          context: ./web
+          dockerfile: Dockerfile
         container_name: web-app
         links: 
             - db:db
@@ -50,8 +50,8 @@ services:
         command: -C -i eth0 policy/detect_file_include
     poc:
         build:
-          context: .
-          dockerfile: ./Dockerfile_poc
+          context: ./poc
+          dockerfile: Dockerfile
         container_name: poc-app
         depends_on:
             - web
