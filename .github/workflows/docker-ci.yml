@@ -49,7 +49,10 @@ jobs:
          cp -f ids/logs/notice.log ci/traffic_backup/notice.log
          git add ci/traffic_backup/
          git commit -m "CI push traffic back"
-
+      - name: Push Screenshots And Traffic Back To Master
+        uses: ad-m/github-push-action@master
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: images Security Scan - container scan
         run: docker build -t xxxxxxxxzhang/web:1.0  -f ./Dockerfile_web .
       - uses: anchore/scan-action@v2.0.0
